@@ -46,11 +46,11 @@ To start using Gawk, you need to add the Gawk config file `.gawk.yaml` into your
 
 After that, you can print all your reports:
 
-    $ bundle exec gawkat
+    $ gawkat
 
 Or, print a specific report using the report identifier:
 
-    $ bundle exec gawkat mobile_sessions
+    $ gawkat mobile_sessions
 
 ### .gawk.yaml
 
