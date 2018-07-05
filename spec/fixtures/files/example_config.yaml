@@ -1,0 +1,26 @@
+first:
+  table:
+    name: Single Date Range
+  request:
+    view_id: XXXX
+    date_ranges:
+      - start_date: 2015-06-15
+        end_date: 2015-06-30
+    dimensions:
+      - ga:browser
+    metrics:
+      - ga:sessions
+second:
+  table:
+    name: Multiple Date Ranges
+  request:
+    view_id: XXXX
+    date_ranges:
+      - start_date: 2015-01-01
+        end_date: 2015-01-31
+      - start_date: 2015-03-01
+        end_date: 2015-03-31
+    dimensions:
+      - ga:browser
+    metrics:
+      - ga:sessions

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../lib/gawk.rb'
+
+cli = Gawk::CLI.new(report_key: ARGV[0])
+cli.output

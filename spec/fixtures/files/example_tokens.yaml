@@ -1,0 +1,2 @@
+---
+gawk: '{"client_id":"foobar","access_token":"foobar","refresh_token":"foobar","scope":["https://www.googleapis.com/auth/analytics.readonly"],"expiration_time_millis":2000000000000}'

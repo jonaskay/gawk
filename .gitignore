@@ -9,3 +9,7 @@
 
 # rspec failure tracking
 .rspec_status
+
+.gawk.yaml
+client_secrets.json
+tokens.yaml
