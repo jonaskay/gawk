@@ -5,6 +5,9 @@ RSpec.describe Gawk::CLI do
       token_file: 'spec/fixtures/files/example_tokens.yaml'
     )
   }
+  let(:config_file) {'spec/fixtures/files/example_config.yaml'}
+
+  subject {Gawk::CLI.new(config_file: config_file, engine: engine)}
 
   describe "#output" do
     let(:report) {
@@ -16,13 +19,7 @@ RSpec.describe Gawk::CLI do
     }
 
     context "when there is a single date range" do
-      subject {
-        Gawk::CLI.new(
-          config_file: 'spec/fixtures/files/example_config.yaml',
-          report_key: 'first',
-          engine: engine
-        )
-      }
+      subject {Gawk::CLI.new(config_file: config_file, report_key: 'first', engine: engine)}
 
       it "outputs the reports" do
         VCR.use_cassette('single_date_range') do
@@ -43,13 +40,7 @@ TEXT
     end
 
     context "when there are multiple date ranges" do
-      subject {
-        Gawk::CLI.new(
-          config_file: 'spec/fixtures/files/example_config.yaml',
-          report_key: 'second',
-          engine: engine
-        )
-      }
+      subject {Gawk::CLI.new(config_file: config_file, report_key: 'second', engine: engine)}
 
       it "outputs the reports" do
         VCR.use_cassette('multiple_date_ranges') do
@@ -77,7 +68,6 @@ TEXT
   end
 
   describe "#get_requests_from_config_file" do
-    let(:config_file) {'spec/fixtures/files/example_config.yaml'}
     let(:table)       {{ 'name' => 'Single Date Range' }}
     let(:other_table) {{ 'name' => 'Multiple Date Ranges' }}
     let(:request) {
@@ -112,8 +102,6 @@ TEXT
     }
 
     context "when report_key is nil" do
-      subject {Gawk::CLI.new(config_file: config_file, engine: engine)}
-
       it "returns requests" do
         result = subject.get_data_from_config_file('request')
 
